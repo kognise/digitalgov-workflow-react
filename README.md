@@ -17,7 +17,7 @@
 
 ## Running
 
-**For development**
+**In development**
 
 ```shell
 yarn dev
@@ -30,7 +30,7 @@ yarn build
 yarn start
 ```
 
-**Static files**
+**Static export**
 
 I'm currently working on being able to export to static files.
 
