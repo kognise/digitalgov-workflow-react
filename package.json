@@ -1,0 +1,33 @@
+{
+  "name": "digitalgov-workflow-react",
+  "version": "1.0.0",
+  "description": "A site for managing the digital.gov editorial workflow on GitHub.",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "main": "pages/index.js",
+  "author": "Felix Mattick",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-sass": "^1.0.1",
+    "apollo-client": "^2.4.8",
+    "apollo-link-http": "^1.5.9",
+    "builtin-status-codes": "^3.0.0",
+    "graphql": "^14.0.2",
+    "graphql-tag": "^2.10.0",
+    "next": "latest",
+    "next-apollo": "^2.0.6",
+    "next-seo": "^1.8.0",
+    "node-sass": "^4.11.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.7.0",
+    "react-apollo": "^2.3.3",
+    "react-dom": "^16.7.0",
+    "uswds": "2.0.0-beta.4",
+    "webpack": "^4.28.1"
+  }
+}

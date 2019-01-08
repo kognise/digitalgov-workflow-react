@@ -1,0 +1,20 @@
+$theme-font-path:  '/static/fonts';
+$theme-image-path: '/static/images';
+
+$theme-color-primary-family: 'indigo-warm';
+$theme-color-primary-vivid:  'indigo-warm-60v';
+
+$theme-font-mono:  'roboto-mono';
+$theme-font-sans:  'public-sans';
+$theme-font-serif: 'georgia';
+
+$color-settings: (
+  output:       true,
+  responsive:   false,
+  active:       false,
+  focus:        false,
+  hover:        true,
+  visited:      true
+);
+
+$theme-font-weight-thin: 100;
