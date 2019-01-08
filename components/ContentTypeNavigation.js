@@ -2,7 +2,7 @@ import { Component } from 'react'
 import Link from 'next/link'
 import cnh from '../lib/cnh'
 
-class Item extends Component {
+class DefaultItem extends Component {
   render() {
     return <li>
       <Link href={this.props.href}>
@@ -18,37 +18,39 @@ class Item extends Component {
 
 export default class extends Component {
   render() {
-    return <nav role='navigation' className='margin-y-5 padding-y-1'>
-      <h4 className='margin-0 margin-bottom-1 text-light font-sans-3xs text-uppercase'>Edit our Pages</h4>
-      <ul className='add-list-reset'>
-        <Item href='/edit/news' first>
-          News
-        </Item>
-        <Item href='/edit/events'>
-          Events
-        </Item>
-        <Item href='/edit/resources'>
-          Resources
-        </Item>
-        <Item href='/edit/services'>
-          Services
-        </Item>
-        <Item href='/edit/communities'>
-          Communities
-        </Item>
-        <Item href='/edit/topics'>
-          Topics
-        </Item>
-        <Item href='/edit/people'>
-          People
-        </Item>
-        <Item href='/edit/promos'>
-          Promos
-        </Item>
-        <Item href='/edit/sources'>
-          Sources
-        </Item>
-      </ul>
+    const Item = this.props.item || DefaultItem
+    const Items = () => (<>
+      <Item href='/edit/news' first>
+        News
+      </Item>
+      <Item href='/edit/events'>
+        Events
+      </Item>
+      <Item href='/edit/resources'>
+        Resources
+      </Item>
+      <Item href='/edit/services'>
+        Services
+      </Item>
+      <Item href='/edit/communities'>
+        Communities
+      </Item>
+      <Item href='/edit/topics'>
+        Topics
+      </Item>
+      <Item href='/edit/people'>
+        People
+      </Item>
+      <Item href='/edit/promos'>
+        Promos
+      </Item>
+      <Item href='/edit/sources'>
+        Sources
+      </Item>
+    </>)
+    return <nav role='navigation' className={this.props.simpler ? '' : 'margin-y-5 padding-y-1'}>
+      <h4 className='margin-0 margin-bottom-1 text-light font-sans-3xs text-uppercase' hidden={this.props.simpler}>Edit our Pages</h4>
+      {this.props.item ? <Items /> : <ul className='add-list-reset'><Items /></ul>}
     </nav>
   }
 }
