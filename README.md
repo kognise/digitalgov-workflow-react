@@ -25,17 +25,22 @@ yarn dev
 
 **For production**
 
-```
+```shell
 yarn build
 yarn start
 ```
 
 **Static export**
 
-I'm currently working on being able to export to static files.
+To export to static files, for example for deployment on something like GitHub Pages or Netlify, run the below commands.
+
+```shell
+yarn build
+yarn export
+```
+
+The output will be in a folder called `out`.
 
 ## Backend
 
 There's a GraphQL backend that will be uploaded to GitHub shortly.
-
-I may also eventually eliminate the backend for a purely static/serverless/whatever-you-call-it approach.
