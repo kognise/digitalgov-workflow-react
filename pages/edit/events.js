@@ -23,6 +23,7 @@ query events {
     location {
       editURL
       filePath
+      websitePath
     }
   }
 }
@@ -36,20 +37,23 @@ export default withData(class extends Component {
           if (error) return <div>Error loading events!</div>
           if (loading) return <div>Loading...</div>
           return data.events.map((event, index) => {
-            let timing = ''
+            let timingString = ''
             const start = moment(event.start)
             const end = moment(event.end)
-            timing += start.format('dddd, MMMM Do, YYYY, h:mm A')
-            timing += ' to '
+            timingString += start.format('dddd, MMMM Do, YYYY, h:mm A')
+            timingString += ' to '
             if (end.format('MMDDYYYY') !== start.format('MMDDYYYY')) {
-              timing += end.format('dddd, MMMM Do, YYYY, h:mm A')
+              timingString += end.format('dddd, MMMM Do, YYYY, h:mm A')
             } else {
-              timing += end.format('h:mm a')
+              timingString += end.format('h:mm a')
             }
+            const timing = <a href={event.registrationURL}>
+              {timingString}
+            </a>
             return <article className='margin-bottom-105' key={index}>
               <div className='grid-row grid-gap-1'>
                 <div className='grid-col-12 tablet:grid-col-10'>
-                  <Card title={event.title} href={event.registrationURL} timing={timing} tags={event.topics}>
+                  <Card title={event.title} href={'https://demo.digital.gov' + event.location.websitePath} timing={timing} tags={event.topics}>
                     {event.summary}
                   </Card>
                 </div>
