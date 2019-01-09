@@ -13,7 +13,7 @@ export default class extends Component {
         <div className='grid-row grid-gap-4'>
           <div className='grid-col-12'>
             <section className='margin-top-9'>
-              <img className='width-8 margin-x-auto margin-top-9 display-block' src='/static/icon.png' alt='Digital.gov' />
+              <img className='width-8 margin-x-auto margin-top-9 display-block' src='/static/icon.transparent.png' alt='Digital.gov' />
               <h1 className='usa-logo-text text-center text-light font-sans-3xl margin-top-2'>
                 <Link href='/'>
                   <a className='text-no-underline text-base-darkest visited:text-base-darkest' accessKey='1' title='Home' aria-label='Digital.gov'>

@@ -15,6 +15,8 @@
 
    You can create links with `mklink /J TO FROM` on Windows or `ln -s FROM TO` on Unix-based systems (the second one is untested, please notify me if I'm wrong).
 
+   Also note that you only have to complete this step if you want to use any icons, images, or font.
+
 ## Running
 
 **In development**

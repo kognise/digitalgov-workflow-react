@@ -10,19 +10,18 @@ import moment from 'moment'
 import '../../styles/app.scss'
 
 const query = gql`
-query events {
-  events {
+query services {
+  services {
     title
     summary
-    start
-    end
-    registrationURL
-    topics {
+    deck
+    authors {
       name
     }
     location {
       editURL
       filePath
+      websitePath
     }
   }
 }
@@ -30,35 +29,31 @@ query events {
 
 export default withData(class extends Component {
   render() {
-    return <Layout medium='Events' live='https://demo.digital.gov/events/'>
+    return <Layout medium='Services' live='https://demo.digital.gov/services/'>
       <Query query={query}>
         {({ loading, error, data }) => {
-          if (error) return <div>Error loading events!</div>
+          if (error) return <div>Error loading services!</div>
           if (loading) return <div>Loading...</div>
-          return data.events.map((event, index) => {
-            let timing = ''
-            const start = moment(event.start)
-            const end = moment(event.end)
-            timing += start.format('dddd, MMMM Do, YYYY, h:mm A')
-            timing += ' to '
-            if (end.format('MMDDYYYY') !== start.format('MMDDYYYY')) {
-              timing += end.format('dddd, MMMM Do, YYYY, h:mm A')
-            } else {
-              timing += end.format('h:mm a')
+          return data.services.map((service, index) => {
+            let summary = ''
+            if (service.deck) {
+              summary += service.deck
+              summary += '\n'
             }
+            summary += service.summary || ''
             return <article className='margin-bottom-105' key={index}>
               <div className='grid-row grid-gap-1'>
                 <div className='grid-col-12 tablet:grid-col-9'>
-                  <Card title={event.title} href={event.registrationURL} timing={timing} tags={event.topics}>
-                    {event.summary}
+                  <Card title={service.title} href={'https://demo.digital.gov' + service.location.websitePath} tags={service.authors}>
+                    {summary}
                   </Card>
                 </div>
                 <div className='grid-col-12 tablet:grid-col-3'>
-                  <a className='margin-bottom-1 usa-button usa-button-fullwidth text-normal' href={event.location.editURL}>
+                  <a className='margin-bottom-1 usa-button usa-button-fullwidth padding-1 text-normal' href={service.location.editURL}>
                     Edit page
                   </a>
-                  <Link href={{ pathname: '/topics', query: { page: event.location.filePath } }}>
-                    <a className='usa-button usa-button-fullwidth usa-button-outline text-normal'>
+                  <Link href={{ pathname: '/topics', query: { page: service.location.filePath } }}>
+                    <a className='usa-button usa-button-fullwidth usa-button-outline padding-1 text-normal'>
                       Edit topics
                     </a>
                   </Link>

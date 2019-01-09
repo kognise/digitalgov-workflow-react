@@ -15,7 +15,7 @@ export default class extends Component {
                 <Link href='/'>
                   <a className='text-no-underline text-light font-sans-xl text-black visited:text-black' accessKey='1' title='Home' aria-label='Digital.gov'>
                     <img className='width-4 margin-right-1 position-relative top-05
-        ' src='/static/icon.png' alt='Digital.gov' />Digital.gov
+        ' src='/static/icon.transparent.png' alt='Digital.gov' />Digital.gov
                   </a>
                 </Link>
               </h1>

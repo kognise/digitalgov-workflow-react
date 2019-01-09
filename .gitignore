@@ -1,5 +1,6 @@
 node_modules/
 .next/
 yarn-error.log
-static/
+static/images
+static/fonts
 out/
