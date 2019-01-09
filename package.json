@@ -7,14 +7,13 @@
     "build": "next build",
     "export": "next export",
     "start": "next start",
-    "netlify": "mkdir static && mkdir static/images && cp -a node_modules/uswds/dist/img/. static/images/ && mkdir static/fonts && cp -a node_modules/uswds/dist/fonts/. static/fonts/. && next build && next export"
+    "netlify": "mkdir static && cp -r ./node_modules/uswds/dist/img ./static/images/ && cp -r ./node_modules/uswds/dist/fonts ./static/fonts && next build && next export"
   },
   "main": "pages/index.js",
   "author": "Felix Mattick",
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "apollo-client": "^2.4.8",
     "apollo-link-http": "^1.5.9",
