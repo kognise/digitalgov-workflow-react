@@ -7,7 +7,7 @@
     "build": "next build",
     "export": "next export",
     "start": "next start",
-    "netlify": "next build && next export"
+    "netlify": "ln -s ./node_modules/uswds/dist/img/ ./static/images/ && ln -s ./node_modules/uswds/dist/fonts/ ./static/fonts/ && next build && next export"
   },
   "main": "pages/index.js",
   "author": "Felix Mattick",
