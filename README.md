@@ -13,7 +13,7 @@
    1. `./node_modules/uswds/dist/img/` -> `./static/images/`
    2. `./node_modules/uswds/dist/fonts/` -> `./static/fonts/`
 
-   You can create links with `mklink /J TO FROM` on Windows or `ln -s FROM TO` on Unix-based systems (the second one is untested, please notify me if I'm wrong).
+   You can create links with `mklink /J TO FROM` on Windows or `ln -s TO FROM` on Unix-based systems (the second one is untested, please notify me if I'm wrong).
 
 ## Running
 
