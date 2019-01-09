@@ -10,8 +10,8 @@ export default class extends Component {
     if (!this.props.home) {
       backButton = <h5 className='margin-0 margin-bottom-1 font-sans-xs text-medium'>
         <Link href='/edit'>
-          <a className='padding-y-05 padding-x-1 visited:text-primary text-no-underline radius-md border-primary border-width-1px border-solid hover:text-primary  display-inline-block text-normal'>
-            <i className='fas fa-arrow-left'></i> All Content Types
+          <a className='padding-y-05 padding-x-1 visited:text-primary text-no-underline radius-md border-primary border-width-1px border-solid hover:text-primary hover:border-base-darker display-inline-block text-normal'>
+            All Content Types
           </a>
         </Link>
       </h5>
