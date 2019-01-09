@@ -20,7 +20,7 @@ export default class extends Component {
   render() {
     const Item = this.props.item || DefaultItem
     const Items = () => (<>
-      <Item href='/edit/news' first>
+      <Item href='/edit/posts' first>
         News
       </Item>
       <Item href='/edit/events'>
