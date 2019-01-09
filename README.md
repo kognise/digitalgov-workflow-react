@@ -43,4 +43,6 @@ The output will be in a folder called `out`.
 
 ## Backend
 
-There's a GraphQL backend that will be uploaded to GitHub shortly.
+The GraphQL backend for this project is [here](https://github.com/arch-lord/digitalgov-workflow-graphql) on GitHub, and is [hosted on heroku](https://github.com/arch-lord/digitalgov-workflow-graphql).
+
+I may eventually eliminate it for a purely static approach.
