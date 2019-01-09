@@ -6,7 +6,8 @@
     "dev": "next",
     "build": "next build",
     "export": "next export",
-    "start": "next start"
+    "start": "next start",
+    "netlify": "next build && next export"
   },
   "main": "pages/index.js",
   "author": "Felix Mattick",
