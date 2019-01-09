@@ -10,11 +10,14 @@ import moment from 'moment'
 import '../../styles/app.scss'
 
 const query = gql`
-query services {
-  services {
+query resources {
+  resources {
     title
     summary
     deck
+    topics {
+      name
+    }
     location {
       editURL
       filePath
@@ -26,30 +29,30 @@ query services {
 
 export default withData(class extends Component {
   render() {
-    return <Layout medium='Services' live='https://demo.digital.gov/services/'>
+    return <Layout medium='Resources' live='https://demo.digital.gov/resources/'>
       <Query query={query}>
         {({ loading, error, data }) => {
-          if (error) return <div>Error loading services!</div>
+          if (error) return <div>Error loading resources!</div>
           if (loading) return <div>Loading...</div>
-          return data.services.map((service, index) => {
+          return data.resources.map((resource, index) => {
             let summary = ''
-            if (service.deck) {
-              summary += service.deck
+            if (resource.deck) {
+              summary += resource.deck
               summary += ' '
             }
-            summary += service.summary || ''
+            summary += resource.summary || ''
             return <article className='margin-bottom-105' key={index}>
               <div className='grid-row grid-gap-1'>
                 <div className='grid-col-12 tablet:grid-col-10'>
-                  <Card title={service.title} href={'https://demo.digital.gov' + service.location.websitePath}>
+                  <Card title={resource.title} href={'https://demo.digital.gov' + resource.location.websitePath} tags={resource.topics}>
                     {summary}
                   </Card>
                 </div>
                 <div className='grid-col-12 tablet:grid-col-2'>
-                  <a className='margin-bottom-1 usa-button usa-button-fullwidth padding-1 text-normal' href={service.location.editURL}>
+                  <a className='margin-bottom-1 usa-button usa-button-fullwidth padding-1 text-normal' href={resource.location.editURL}>
                     Edit page
                   </a>
-                  <Link href={{ pathname: '/topics', query: { page: service.location.filePath } }}>
+                  <Link href={{ pathname: '/topics', query: { page: resource.location.filePath } }}>
                     <a className='usa-button usa-button-fullwidth usa-button-outline padding-1 text-normal'>
                       Edit topics
                     </a>

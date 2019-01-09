@@ -48,17 +48,17 @@ export default withData(class extends Component {
             }
             return <article className='margin-bottom-105' key={index}>
               <div className='grid-row grid-gap-1'>
-                <div className='grid-col-12 tablet:grid-col-9'>
+                <div className='grid-col-12 tablet:grid-col-10'>
                   <Card title={event.title} href={event.registrationURL} timing={timing} tags={event.topics}>
                     {event.summary}
                   </Card>
                 </div>
-                <div className='grid-col-12 tablet:grid-col-3'>
-                  <a className='margin-bottom-1 usa-button usa-button-fullwidth text-normal' href={event.location.editURL}>
+                <div className='grid-col-12 tablet:grid-col-2'>
+                  <a className='margin-bottom-1 usa-button usa-button-fullwidth padding-1 text-normal' href={event.location.editURL}>
                     Edit page
                   </a>
                   <Link href={{ pathname: '/topics', query: { page: event.location.filePath } }}>
-                    <a className='usa-button usa-button-fullwidth usa-button-outline text-normal'>
+                    <a className='usa-button usa-button-fullwidth usa-button-outline padding-1 text-normal'>
                       Edit topics
                     </a>
                   </Link>

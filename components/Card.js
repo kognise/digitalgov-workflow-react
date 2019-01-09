@@ -17,7 +17,7 @@ export default class extends Component {
         </Fragment>
       })
     }
-    return <header className='bg-base-lightest padding-2 radius-md'>
+    return <header className='bg-base-lightest padding-2 radius-md margin-bottom-1'>
       <h3 className='margin-0 margin-bottom-1'>
         <a className='text-no-underline hover:text-underline text-ink visited:text-ink' href={this.props.href} title={entities.decode(this.props.title)}>
           {entities.decode(this.props.title)}
