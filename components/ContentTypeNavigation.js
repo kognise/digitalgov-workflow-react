@@ -49,7 +49,7 @@ export default class extends Component {
       </Item>
     </>)
     return <nav role='navigation' className={this.props.simpler ? '' : 'margin-y-5 padding-y-1'}>
-      <h4 className='margin-0 margin-bottom-1 text-light font-sans-3xs text-uppercase' hidden={this.props.simpler}>Edit our Pages</h4>
+      <h4 className='margin-0 margin-bottom-1 text-light font-sans-3xs text-uppercase' hidden={this.props.simpler} aria-hidden={(!!this.props.simpler).toString()}>Edit our Pages</h4>
       {this.props.item ? <Items /> : <ul className='add-list-reset'><Items /></ul>}
     </nav>
   }

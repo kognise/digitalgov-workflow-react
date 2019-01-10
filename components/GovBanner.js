@@ -11,7 +11,7 @@ export default class extends Component {
       <div className='usa-accordion'>
         <header className={cnh('usa-banner-header', {
           'usa-banner-header-expanded': this.state.expanded
-        })}>
+        })} role='presentation'>
           <div className='usa-banner-inner grid-container-desktop-lg'>
             <div className='grid-col-auto'>
               <img className='usa-banner-header-flag' src='/static/images/favicons/favicon-57.png' alt='U.S. flag' />

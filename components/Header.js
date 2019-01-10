@@ -13,9 +13,9 @@ export default class extends Component {
             <div className='grid-col-12 tablet-lg:grid-col-5'>
               <h1 className='usa-logo-text'>
                 <Link href='/'>
-                  <a className='text-no-underline text-light font-sans-xl text-black visited:text-black' accessKey='1' title='Home' aria-label='Digital.gov'>
-                    <img className='width-4 margin-right-1 position-relative top-05
-        ' src='/static/icon.transparent.png' alt='Digital.gov' />Digital.gov
+                  <a className='text-no-underline text-light font-sans-xl text-black visited:text-black' accessKey='1' title='Home'>
+                    <img className='width-4 margin-right-1 position-relative top-05' src='/static/icon.transparent.png' />
+                    Digital.gov
                   </a>
                 </Link>
               </h1>
