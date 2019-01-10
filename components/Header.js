@@ -14,7 +14,7 @@ export default class extends Component {
               <h1 className='usa-logo-text'>
                 <Link href='/'>
                   <a className='text-no-underline text-light font-sans-xl text-black visited:text-black' accessKey='1' title='Home'>
-                    <img className='width-4 margin-right-1 position-relative top-05' src='/static/icon.transparent.png' />
+                    <img className='width-4 margin-right-1 position-relative top-05' src='/static/icon.transparent.png' alt='Logo' />
                     Digital.gov
                   </a>
                 </Link>
