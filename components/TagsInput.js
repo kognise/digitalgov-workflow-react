@@ -10,13 +10,15 @@ export default class extends Component {
   }
 
   render() {
-    return <TagsInput renderInput={this.renderInput.bind(this)} value={this.state.tags} onChange={this.handleChange.bind(this)} inputProps={{
-      className: 'usa-tagsinput-input',
-      placeholder: null
-    }} tagProps={{
-      className: 'usa-tagsinput-tag', 
-      classNameRemove: 'usa-tagsinput-remove'
-    }} className='usa-tagsinput' focusedClassName='usa-tagsinput-focused' onlyUnique />
+    return <div className='usa-tagsinput-outer'>
+      <TagsInput renderInput={this.renderInput.bind(this)} value={this.state.tags} onChange={this.handleChange.bind(this)} inputProps={{
+        className: 'usa-tagsinput-input',
+        placeholder: null
+      }} tagProps={{
+        className: 'usa-tagsinput-tag', 
+        classNameRemove: 'usa-tagsinput-remove'
+      }} className='usa-tagsinput' focusedClassName='usa-tagsinput-focused' onlyUnique />
+    </div>
   }
 
   renderInput({ addTag, ...props }) {

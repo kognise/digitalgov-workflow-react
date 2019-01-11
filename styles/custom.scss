@@ -23,9 +23,12 @@ html {
   -webkit-appearance: none;
 }
 
+.usa-tagsinput-outer {
+  position: relative;
+}
+
 .usa-tagsinput {
   @include u-bg('white');
-  overflow: hidden;
   cursor: text;
   border-width: 1px;
   border-color: #585c62;
@@ -40,11 +43,16 @@ html {
   padding: 0.5rem;
   width: 100%;
   margin-top: 0.5rem;
+  overflow: hidden;
 }
 
 .usa-tagsinput-focused {
   outline: 0.25rem solid #0096f4;
   outline-offset: 0;
+}
+
+.usa-tagsinput:first-child {
+  overflow: hidden;
 }
 
 .usa-tagsinput-tag {
@@ -83,10 +91,9 @@ html {
 
 .react-autosuggest__suggestions-container {
   position: absolute;
-  margin-left: -9px;
-  margin-top: 31px;
+  left: 0px;
+  top: 40px;
   width: 100%;
-  max-width: 30rem;
 }
 
 .react-autosuggest__suggestions-list {
