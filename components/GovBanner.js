@@ -33,8 +33,8 @@ export default class extends Component {
         <div className='usa-banner-content usa-accordion-content' id='gov-banner' hidden={!this.state.expanded}>
           <div className='grid-row grid-gap-lg'>
             <div className='usa-banner-guidance-gov tablet:grid-col-6'>
-              <img className='usa-banner-icon usa-media_block-img' src='/static/images/icon-dot-gov.svg' alt='Dot gov' />
-              <div className='usa-media_block-body'>
+              <img className='usa-banner-icon' src='/static/images/icon-dot-gov.svg' alt='Dot gov' />
+              <div className='usa-banner-description'>
                 <p>
                   <strong>The .gov means it’s official.</strong>
                   <br />
@@ -43,8 +43,8 @@ export default class extends Component {
               </div>
             </div>
             <div className='usa-banner-guidance-ssl tablet:grid-col-6'>
-              <img className='usa-banner-icon usa-media_block-img' src='/static/images/icon-https.svg' alt='Https' />
-              <div className='usa-media_block-body'>
+              <img className='usa-banner-icon' src='/static/images/icon-https.svg' alt='Https' />
+              <div className='usa-banner-description'>
                 <p>
                   <strong>The site is secure.</strong>
                   <br />
