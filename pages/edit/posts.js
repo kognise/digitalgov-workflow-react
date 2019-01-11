@@ -28,7 +28,7 @@ query posts {
 
 export default withData(class extends Component {
   render() {
-    return <Layout medium='News' live='https://demo.digital.gov/posts/'>
+    return <Layout medium='News' live='https://demo.digital.gov/posts/' new='post'>
       <Query query={query}>
         {({ loading, error, data }) => {
           if (error) return <div>Error loading posts!</div>

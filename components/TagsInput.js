@@ -20,7 +20,7 @@ export default class extends Component {
   }
 
   renderInput({ addTag, ...props }) {
-    const handleChange = (event, { newValue, method }) => {
+    const handleChange = (event, { method }) => {
       if (method === 'enter') {
         event.preventDefault()
       } else {
@@ -29,10 +29,9 @@ export default class extends Component {
     }
 
     const inputValue = (props.value && props.value.trim().toLowerCase()) || ''
-    const inputLength = inputValue.length
 
     const suggestions = this.props.sans.filter((san) => {
-      return san.name.toLowerCase().slice(0, inputLength) === inputValue
+      return san.name.toLowerCase().includes(inputValue)
     })
 
     return <Autosuggest ref={(autosuggest) => {

@@ -8,8 +8,33 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome'
 import { faBolt } from '@fortawesome/free-solid-svg-icons'
 import slugify from '../../lib/slugify'
+import withData from '../../lib/withData'
+import { Query } from 'react-apollo'
+import gql from 'graphql-tag'
 
-export default class extends Component {
+const topicsQuery = gql`
+query topics {
+  topics {
+    san {
+      name
+      slug
+    }
+  }
+}
+`
+
+const authorsQuery = gql`
+query authors {
+  authors {
+    san {
+      name
+      slug
+    }
+  }
+}
+`
+
+export default withData(class extends Component {
   state = {
     postType: 'dg',
     headline: '',
@@ -141,13 +166,25 @@ export default class extends Component {
               {summaryInput}
 
               <label className='usa-label' htmlFor='topics'>Topics</label>
-              <TagsInput idOrName='topics' handleChange={this.topicsChanged.bind(this)} sans={[]} />
+              <Query query={topicsQuery}>
+                {({ loading, error, data }) => {
+                  if (error) return <div>Error loading topics!</div>
+                  if (loading) return <div>Loading...</div>
+                  return <TagsInput idOrName='topics' handleChange={this.topicsChanged.bind(this)} sans={data.topics.map((topic) => topic.san)} />
+                }}
+              </Query>
               <p className='margin-y-05 font-sans-xs text-base-dark'>
                 <em>Select the 2-3 topics that best fit</em>
               </p>
 
               <label className='usa-label' htmlFor='authors'>Authors</label>
-              <TagsInput idOrName='authors' handleChange={this.authorsChanged.bind(this)} sans={[]} />
+              <Query query={authorsQuery}>
+                {({ loading, error, data }) => {
+                  if (error) return <div>Error loading authors!</div>
+                  if (loading) return <div>Loading...</div>
+                  return <TagsInput idOrName='authors' handleChange={this.authorsChanged.bind(this)} sans={data.authors.map((author) => author.san)} />
+                }}
+              </Query>
               <p className='margin-y-05 font-sans-xs text-base-dark'>
                 <em>
                   Select the people who've contributed to this. Don't see the person you're looking for?
@@ -329,4 +366,4 @@ source_url: '${this.state.url}'
     `.trim()
     this.setState({ fmFilename, fmContent })
   }
-}
+})
