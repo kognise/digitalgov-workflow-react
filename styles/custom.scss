@@ -5,3 +5,143 @@ html {
 .usa-button-fullwidth {
   width: 100%;
 }
+
+.usa-banner-icon {
+  float: left;
+  margin-right: .5rem;
+}
+
+.usa-banner-description {
+  overflow: hidden;
+}
+
+.usa-textarea {
+  resize: vertical;
+}
+
+.usa-select, .usa-textarea, .usa-input {
+  -webkit-appearance: none;
+}
+
+.usa-tagsinput {
+  @include u-bg('white');
+  overflow: hidden;
+  cursor: text;
+  border-width: 1px;
+  border-color: #585c62;
+  border-style: solid;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+  color: #171717;
+  display: block;
+  height: 2.5rem;
+  max-width: 30rem;
+  padding: 0.5rem;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.usa-tagsinput-focused {
+  outline: 0.25rem solid #0096f4;
+  outline-offset: 0;
+}
+
+.usa-tagsinput-tag {
+  @include u-bg('base-lighter');
+  @include u-radius('md');
+  @include u-font('sans', '2xs');
+  margin-top: -3px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  margin-left: -3px;
+  padding: 6px;
+  float: left;
+}
+
+.usa-tagsinput-remove {
+  @include u-text('base-dark');
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    @include u-text('base-darker');
+  }
+}
+
+.usa-tagsinput-tag a::before {
+  content: "×";
+  margin-left: 4px;
+}
+
+.usa-tagsinput-input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  float: left;
+}
+
+.react-autosuggest__suggestions-container {
+  position: absolute;
+  margin-left: -9px;
+  margin-top: 31px;
+  width: 100%;
+  max-width: 30rem;
+}
+
+.react-autosuggest__suggestions-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.react-autosuggest__suggestion {
+  @include u-bg('base-lightest');
+  padding: 0.5rem;
+  cursor: pointer;
+  border-width: 1px;
+  border-color: #585c62;
+  border-style: solid;
+  border-top: none;
+
+  &:hover {
+    @include u-bg('base-lighter');
+  }
+}
+
+.seo-preview {
+  line-height: 1.2;
+  font-family: 'Arial', arial, sans-serif;
+
+  &-title {
+    color: #1a0dab;
+    cursor: pointer;
+    margin: 0;
+    font-weight: normal;
+    font-size: 18px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &-url {
+    color: #006621;
+    font-size: 14px;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  &-content {
+    color: #545454;
+    word-wrap: break-word;
+    margin: 0;
+    font-size: small;
+    max-width: none;
+  }
+}
+
+.overlay-overflow {
+  overflow: overlay;
+}

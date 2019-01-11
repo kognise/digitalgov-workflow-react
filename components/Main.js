@@ -2,7 +2,7 @@ import { Component } from 'react'
 
 export default class extends Component {
   render() {
-    return <main id='main-content' className={`padding-y-${this.props.padding || '1'}`}>
+    return <main id='main-content' className={`padding-y-${this.props.padding || '1'} ` + (this.props.className || '')}>
       <div className={`grid-container${this.props.gridType ? '-' + this.props.gridType : ''}`}>
         {this.props.children}
       </div>
