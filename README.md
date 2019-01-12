@@ -73,10 +73,10 @@ Below are some conventions to try to keep everything organized. Although this pr
 
 2. Create two links:
 
-   1. `./node_modules/uswds/dist/img/` -> `./static/images/`
-   2. `./node_modules/uswds/dist/fonts/` -> `./static/fonts/`
+   1. `./node_modules/uswds/dist/img/` -> `./static/images`
+   2. `./node_modules/uswds/dist/fonts/` -> `./static/fonts`
 
-   You can create links with `mklink /J TO FROM` on Windows or `ln -s FROM TO` on Unix-based systems (the second one is untested, please notify me if I'm wrong).
+   You can create these automagically with `yarn link:unix` on Max and Linux, or `yarn link:windows` on Windows.
 
    Also note that you only have to complete this step if you want to use any icons, images, or fonts.
 

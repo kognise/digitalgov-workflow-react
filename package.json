@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "A site for managing the Digital.gov editorial workflow on GitHub.",
   "scripts": {
-    "dev": "next",
+    "dev": "ENDPOINT=http://localhost:4000/ next",
     "build": "next build",
     "export": "next export",
     "start": "next start",
+    "link:unix": "ln -s $(pwd)/node_modules/uswds/dist/fonts/ $(pwd)/static/fonts && ln -s $(pwd)/node_modules/uswds/dist/img/ $(pwd)/static/images",
+    "link:windows": "mklink /J .\\node_modules\\uswds\\dist\\fonts\\ .\\static\\fonts\\ && mklink /J .\\node_modules\\uswds\\dist\\img\\ .\\static\\images\\",
     "netlify": "cp -r ./node_modules/uswds/dist/img ./static/images/ && cp -r ./node_modules/uswds/dist/fonts ./static/fonts && next build && next export"
   },
   "main": "pages/index.js",
