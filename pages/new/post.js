@@ -269,7 +269,7 @@ export default withData(class extends Component {
 
             <a className='usa-button usa-button-fullwidth margin-bottom-1'
               href={'https://github.com/GSA/digitalgov.gov/new/demo/content/posts/'
-                + this.state.date.substr(0, this.state.date.length - 3).replace('-', '/')
+                + this.state.date.substr(0, this.state.date.length - 3).replace(/-/g, '/')
                 + '/draft?filename='
                 + encodeURIComponent(this.state.fmFilename)
                 + '&value='
