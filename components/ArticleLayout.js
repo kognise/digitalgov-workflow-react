@@ -4,8 +4,18 @@ import Main from './Main'
 import Navigation from './Navigation'
 import Header from './Header'
 import ContentTypeNavigation from './ContentTypeNavigation'
+import PropTypes from 'prop-types'
 
 export default class extends Component {
+  displayName = 'ArticleLayout'
+
+  propTypes = {
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]).isRequired
+  }
+
   render() {
     return <Paper>
       <Header />

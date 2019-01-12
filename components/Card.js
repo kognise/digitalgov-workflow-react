@@ -1,10 +1,31 @@
 import { Component, Fragment } from 'react'
 import Tag from './Tag'
 import { AllHtmlEntities as Entities } from 'html-entities'
+import PropTypes from 'prop-types'
 
 const entities = new Entities()
 
 export default class extends Component {
+  displayName = 'Card'
+
+  propTypes = {
+    tags: PropTypes.arrayOf(PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.shape({
+        slug: PropTypes.string,
+        name: PropTypes.string
+      })
+    ])),
+    'tags.map': PropTypes.func,
+    href: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    timing: PropTypes.string,
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]).isRequired
+  }
+
   render() {
     let tags = null
     if (this.props.tags) {

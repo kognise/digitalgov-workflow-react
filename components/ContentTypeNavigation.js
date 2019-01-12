@@ -1,8 +1,23 @@
 import { Component } from 'react'
 import Link from 'next/link'
 import cnh from '../lib/cnh'
+import PropTypes from 'prop-types'
 
 class DefaultItem extends Component {
+  displayName = 'DefaultItem'
+
+  propTypes = {
+    href: PropTypes.oneOf([
+      PropTypes.string,
+      PropTypes.object
+    ]),
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]).isRequired,
+    first: PropTypes.bool
+  }
+
   render() {
     return <li>
       <Link href={this.props.href}>
@@ -17,6 +32,12 @@ class DefaultItem extends Component {
 }
 
 export default class extends Component {
+  displayName = 'Navigation'
+
+  propTypes = {
+    item: PropTypes.node,
+    simpler: PropTypes.bool
+  }
   render() {
     const Item = this.props.item || DefaultItem
     const Items = () => (<>

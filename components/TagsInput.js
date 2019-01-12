@@ -2,11 +2,23 @@ import { Component } from 'react'
 import TagsInput from 'react-tagsinput'
 import Autosuggest from 'react-autosuggest'
 import slugify from '../lib/slugify'
+import PropTypes from 'prop-types'
 
 export default class extends Component {
   state = {
     tags: [],
     slugs: []
+  }
+
+  propTypes = {
+    sans: PropTypes.arrayOf(PropTypes.shape({
+      slug: PropTypes.string,
+      name: PropTypes.string
+    })).isRequired,
+    'sans.filter': PropTypes.func.isRequired,
+    'sans.find': PropTypes.func.isRequired,
+    idOrName: PropTypes.string,
+    handleChange: PropTypes.handleChange
   }
 
   render() {
@@ -15,7 +27,7 @@ export default class extends Component {
         className: 'usa-tagsinput-input',
         placeholder: null
       }} tagProps={{
-        className: 'usa-tagsinput-tag', 
+        className: 'usa-tagsinput-tag',
         classNameRemove: 'usa-tagsinput-remove'
       }} className='usa-tagsinput' focusedClassName='usa-tagsinput-focused' onlyUnique />
     </div>
@@ -41,16 +53,16 @@ export default class extends Component {
         props.ref(autosuggest.input)
       }
     }}
-      suggestions={suggestions}
-      shouldRenderSuggestions={(value) => value && value.trim().length > 0}
-      getSuggestionValue={(suggestion) => suggestion.name}
-      renderSuggestion={(suggestion) => <span>{suggestion.name}</span>}
-      inputProps={{ ...props, onChange: handleChange, id: this.props.idOrName }}
-      onSuggestionSelected={(event, { suggestion }) => {
-        addTag(suggestion.name)
-      }}
-      onSuggestionsClearRequested={() => {}}
-      onSuggestionsFetchRequested={() => {}} />
+    suggestions={suggestions}
+    shouldRenderSuggestions={(value) => value && value.trim().length > 0}
+    getSuggestionValue={(suggestion) => suggestion.name}
+    renderSuggestion={(suggestion) => <span>{suggestion.name}</span>}
+    inputProps={{ ...props, onChange: handleChange, id: this.props.idOrName }}
+    onSuggestionSelected={(event, { suggestion }) => {
+      addTag(suggestion.name)
+    }}
+    onSuggestionsClearRequested={() => { }}
+    onSuggestionsFetchRequested={() => { }} />
   }
 
   handleChange(tags) {

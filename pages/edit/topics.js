@@ -1,9 +1,7 @@
 import { Component } from 'react'
 import Layout from '../../components/EditLayout.js'
-import Card from '../../components/Card.js'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
-import Link from 'next/link'
 import withData from '../../lib/withData'
 
 import '../../styles/app.scss'
@@ -42,15 +40,15 @@ export default withData(class extends Component {
             <tbody>
               {data.topics.map((topic, index) => {
                 let color = ''
-                switch(topic.weight) {
-                  case 1:
-                    color = 'text-green'
-                    break
-                  case 2:
-                    color = 'text-yellow'
-                    break
-                  default:
-                    color = 'text-red'
+                switch (topic.weight) {
+                case 1:
+                  color = 'text-green'
+                  break
+                case 2:
+                  color = 'text-yellow'
+                  break
+                default:
+                  color = 'text-red'
                 }
                 return <tr key={index}>
                   <td>{topic.san.name}</td>

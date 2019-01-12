@@ -9,7 +9,9 @@
     "start": "next start",
     "link:unix": "ln -s $(pwd)/node_modules/uswds/dist/fonts/ $(pwd)/static/fonts && ln -s $(pwd)/node_modules/uswds/dist/img/ $(pwd)/static/images",
     "link:windows": "mklink /J .\\node_modules\\uswds\\dist\\fonts\\ .\\static\\fonts\\ && mklink /J .\\node_modules\\uswds\\dist\\img\\ .\\static\\images\\",
-    "netlify": "cp -r ./node_modules/uswds/dist/img ./static/images/ && cp -r ./node_modules/uswds/dist/fonts ./static/fonts && next build && next export"
+    "netlify": "cp -r ./node_modules/uswds/dist/img ./static/images/ && cp -r ./node_modules/uswds/dist/fonts ./static/fonts && next build && next export",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "main": "pages/index.js",
   "author": "Felix Mattick",
@@ -27,11 +29,11 @@
     "graphql-tag": "^2.10.0",
     "html-entities": "^1.2.1",
     "moment": "^2.23.0",
-    "next": "latest",
+    "next": "^7.0.2",
     "next-apollo": "^2.0.6",
     "next-seo": "^1.8.0",
     "node-sass": "^4.11.0",
-    "prop-types": "^15.6.0",
+    "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-apollo": "^2.3.3",
     "react-autosuggest": "^9.4.3",
@@ -40,5 +42,10 @@
     "uswds": "2.0.0-beta.4",
     "webpack": "^4.28.1"
   },
-  "repository": "https://github.com/arch-lord/digitalgov-workflow-react.git"
+  "repository": "https://github.com/arch-lord/digitalgov-workflow-react.git",
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.12.0",
+    "eslint-plugin-react": "^7.12.3"
+  }
 }

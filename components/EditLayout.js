@@ -3,11 +3,26 @@ import Paper from './Paper'
 import Main from './Main'
 import Header from './Header'
 import Link from 'next/link'
+import PropTypes from 'prop-types'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 export default class extends Component {
+  displayName = 'EditLayout'
+
+  propTypes = {
+    home: PropTypes.bool,
+    new: PropTypes.string,
+    info: PropTypes.string,
+    medium: PropTypes.string.isRequired,
+    live: PropTypes.string.isRequired,
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]).isRequired
+  }
+
   constructor(props) {
     super(props)
     library.add(faArrowLeft)

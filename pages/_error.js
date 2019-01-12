@@ -2,10 +2,16 @@ import { Component } from 'react'
 import Paper from '../components/Paper'
 import Main from '../components/Main'
 import statusCodes from 'builtin-status-codes'
+import PropTypes from 'prop-types'
 
 import '../styles/app.scss'
 
 export default class extends Component {
+  propTypes = {
+    code: PropTypes.number,
+    message: PropTypes.string
+  }
+
   static getInitialProps(ctx) {
     const code = ctx.res.statusCode || 400
     const message = statusCodes[code]

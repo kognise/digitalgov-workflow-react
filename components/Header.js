@@ -3,6 +3,8 @@ import GovBanner from './GovBanner'
 import Link from 'next/link'
 
 export default class extends Component {
+  displayName = 'Header'
+
   render() {
     return <>
       <a className='usa-skipnav' href='#main-content'>Skip to main content</a>

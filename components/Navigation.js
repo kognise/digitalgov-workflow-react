@@ -1,7 +1,21 @@
 import { Component } from 'react'
 import Link from 'next/link'
+import PropTypes from 'prop-types'
 
 class Item extends Component {
+  displayName = 'Item'
+
+  propTypes = {
+    href: PropTypes.oneOf([
+      PropTypes.string,
+      PropTypes.object
+    ]),
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]).isRequired
+  }
+
   render() {
     return <li className='padding-y-05'>
       <Link href={this.props.href}>
@@ -14,6 +28,8 @@ class Item extends Component {
 }
 
 export default class extends Component {
+  displayName = 'Navigation'
+
   render() {
     return <nav role='navigation'>
       <ul className='add-list-reset'>

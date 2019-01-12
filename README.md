@@ -49,6 +49,8 @@ Below are some conventions to try to keep everything organized. Although this pr
 
 - Prefer USWDS utility classes over custom styles
 
+We use ESLint to make sure these rules are followed. Please try to run `yarn lint:fix` to fix as many problems as is possible, and also print out what's wrong. The project won't deploy if there are linting errors.
+
 ### File Structure
 
 - All pages should go in the `pages` directory.

@@ -6,6 +6,8 @@ export default class extends Component {
     expanded: false
   }
 
+  displayName = 'GovBanner'
+
   render() {
     return <div className='usa-banner'>
       <div className='usa-accordion'>
@@ -21,11 +23,11 @@ export default class extends Component {
                 An official website of the United States government
               </p>
               <p className='usa-banner-header-action' aria-hidden='true'>
-                Here's how you know
+                Here&apos;s how you know
               </p>
             </div>
             <button className='usa-accordion-button usa-banner-button' aria-expanded={this.state.expanded.toString()} aria-controls='gov-banner' onClick={this.toggleBanner.bind(this)}>
-              <span className='usa-banner-button-text'>Here's how you know</span>
+              <span className='usa-banner-button-text'>Here&apos;s how you know</span>
               {' '}
             </button>
           </div>

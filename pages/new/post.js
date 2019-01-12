@@ -42,7 +42,7 @@ export default withData(class extends Component {
     source: '',
     url: '',
     summary: '',
-    topics:  [],
+    topics: [],
     authors: [],
     date: moment().format('YYYY-MM-DD'),
     time: moment().format('HH:mm')
@@ -187,9 +187,9 @@ export default withData(class extends Component {
               </Query>
               <p className='margin-y-05 font-sans-xs text-base-dark'>
                 <em>
-                  Select the people who've contributed to this. Don't see the person you're looking for?
+                  Select the people who&apos;ve contributed to this. Don&apos;t see the person you&apos;re looking for?
                   {' '}
-                  <a target='_blank' href='https://github.com/GSA/digitalgov.gov/tree/demo/data/people/authors' title='Add a new contributor'>
+                  <a target='_blank' rel='noopener noreferrer' href='https://github.com/GSA/digitalgov.gov/tree/demo/data/people/authors' title='Add a new contributor'>
                     Add a contributor
                   </a>
                 </em>
@@ -323,7 +323,7 @@ export default withData(class extends Component {
   }
 
   authorsChanged(authors) {
-    this.setState({ authors}, this.updateFrontMatter)
+    this.setState({ authors }, this.updateFrontMatter)
   }
 
   dateChanged(event) {
@@ -347,9 +347,9 @@ export default withData(class extends Component {
     const fmContent = `
 ---
 slug: ${[
-  this.state.postType === 'elsewhere' ? 'headline' : slugify(this.state.headline),
-  slugify(this.state.deck)
-].join('-')}
+    this.state.postType === 'elsewhere' ? 'headline' : slugify(this.state.headline),
+    slugify(this.state.deck)
+  ].join('-')}
 date: ${this.state.date} ${this.state.time}:00 -0500
 ${this.state.postType === 'elsewhere' ? '' : `\ntitle: '${this.state.headline}'`}
 deck: '${this.state.deck}'${this.state.postType === 'elsewhere' ? '' : `\nsummary: '${this.state.summary}'`}

@@ -2,10 +2,22 @@ import { Component } from 'react'
 import Layout from '../../components/EditLayout.js'
 import ContentTypeNavigation from '../../components/ContentTypeNavigation.js'
 import Link from 'next/link'
+import PropTypes from 'prop-types'
 
 import '../../styles/app.scss'
 
 class Item extends Component {
+  propTypes = {
+    href: PropTypes.oneOf([
+      PropTypes.string,
+      PropTypes.object
+    ]),
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]).isRequired
+  }
+
   render() {
     return <h2 className='margin-0 margin-bottom-2'>
       <Link href={this.props.href}>
