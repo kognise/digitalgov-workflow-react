@@ -7,9 +7,10 @@
     "build": "next build",
     "export": "next export",
     "start": "next start",
+    "test": "yarn lint",
     "link:unix": "ln -s $(pwd)/node_modules/uswds/dist/fonts/ $(pwd)/static/fonts && ln -s $(pwd)/node_modules/uswds/dist/img/ $(pwd)/static/images",
     "link:windows": "mklink /J .\\node_modules\\uswds\\dist\\fonts\\ .\\static\\fonts\\ && mklink /J .\\node_modules\\uswds\\dist\\img\\ .\\static\\images\\",
-    "netlify": "cp -r ./node_modules/uswds/dist/img ./static/images/ && cp -r ./node_modules/uswds/dist/fonts ./static/fonts && next build && next export",
+    "netlify": "yarn test && cp -r ./node_modules/uswds/dist/img ./static/images/ && cp -r ./node_modules/uswds/dist/fonts ./static/fonts && next build && next export",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
