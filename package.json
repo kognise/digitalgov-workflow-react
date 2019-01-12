@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A site for managing the Digital.gov editorial workflow on GitHub.",
   "scripts": {
-    "dev": "ENDPOINT=http://localhost:4000/ next",
+    "dev": "next",
     "build": "next build",
     "export": "next export",
     "start": "next start",

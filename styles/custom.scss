@@ -44,77 +44,76 @@ html {
   width: 100%;
   margin-top: 0.5rem;
   overflow: hidden;
-}
+  
+  &-focused {
+    outline: 0.25rem solid #0096f4;
+    outline-offset: 0;
+  }
 
-.usa-tagsinput-focused {
-  outline: 0.25rem solid #0096f4;
-  outline-offset: 0;
-}
+  &-tag {
+    @include u-bg('base-lighter');
+    @include u-radius('md');
+    @include u-font('sans', '2xs');
+    margin-top: -3px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-left: -3px;
+    padding: 6px;
+    float: left;
 
-.usa-tagsinput:first-child {
-  overflow: hidden;
-}
+    a::before {
+      content: "×";
+      margin-left: 4px;
+    }
+  }
 
-.usa-tagsinput-tag {
-  @include u-bg('base-lighter');
-  @include u-radius('md');
-  @include u-font('sans', '2xs');
-  margin-top: -3px;
-  margin-bottom: 5px;
-  margin-right: 5px;
-  margin-left: -3px;
-  padding: 6px;
-  float: left;
-}
+  &-remove {
+    @include u-text('base-dark');
+    cursor: pointer;
+    text-decoration: none;
 
-.usa-tagsinput-remove {
-  @include u-text('base-dark');
-  cursor: pointer;
-  text-decoration: none;
+    &:hover {
+      @include u-text('base-darker');
+    }
+  }
 
-  &:hover {
-    @include u-text('base-darker');
+  &-input {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    float: left;
   }
 }
 
-.usa-tagsinput-tag a::before {
-  content: "×";
-  margin-left: 4px;
-}
+.react-autosuggest {
+  &__suggestions-container {
+    position: absolute;
+    left: 0px;
+    top: 40px;
+    width: 100%;
+    max-width: 30rem;
+    z-index: 1;
+  }
 
-.usa-tagsinput-input {
-  border: 0;
-  outline: 0;
-  background: transparent;
-  float: left;
-}
+  &__suggestions-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
 
-.react-autosuggest__suggestions-container {
-  position: absolute;
-  left: 0px;
-  top: 40px;
-  width: 100%;
-  max-width: 30rem;
-}
+  &__suggestion {
+    @include u-bg('base-lightest');
+    padding: 0.5rem;
+    cursor: pointer;
+    border-width: 1px;
+    border-color: #585c62;
+    border-style: solid;
+    border-top: none;
 
-.react-autosuggest__suggestions-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-}
-
-.react-autosuggest__suggestion {
-  @include u-bg('base-lightest');
-  padding: 0.5rem;
-  cursor: pointer;
-  border-width: 1px;
-  border-color: #585c62;
-  border-style: solid;
-  border-top: none;
-
-  &:hover {
-    @include u-bg('base-lighter');
+    &:hover {
+      @include u-bg('base-lighter');
+    }
   }
 }
 
@@ -150,8 +149,9 @@ html {
   }
 }
 
-.overlay-overflow {
-  overflow: overlay;
+.break-word {
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 .svg-inline--fa {
@@ -160,4 +160,13 @@ html {
   height: 1em;
   overflow: visible;
   vertical-align: -0.125em;
+}
+
+.usa-button-outline-alt {
+  color: #ffffff !important;
+  background-color: transparent !important;
+
+  &:active {
+    box-shadow: inset 0 0 0 2px #000000;
+  }
 }

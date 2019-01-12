@@ -6,7 +6,7 @@ import TagsInput from '../../components/TagsInput'
 import moment from 'moment'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome'
-import { faBolt } from '@fortawesome/free-solid-svg-icons'
+import { faBolt, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import slugify from '../../lib/slugify'
 import withData from '../../lib/withData'
 import { Query } from 'react-apollo'
@@ -50,7 +50,7 @@ export default withData(class extends Component {
 
   constructor(props) {
     super(props)
-    library.add(faBolt)
+    library.add([ faBolt, faArrowLeft ])
   }
 
   render() {
@@ -104,9 +104,12 @@ export default withData(class extends Component {
       <Main className='bg-primary-darker text-white' padding='4' gridType='desktop-lg'>
         <div className='grid-row grid-gap-4'>
           <div className='grid-col-12 tablet:grid-col-6'>
-            <header className='margin-bottom-3'>
+            <section className='margin-bottom-3'>
+              <a className='usa-button usa-button-outline usa-button-outline-alt padding-1 margin-bottom-1 text-normal'>
+                <FA icon='arrow-left' /> Back
+              </a>
               <h1 className='margin-0 text-thin font-sans-2xl'>New Post</h1>
-            </header>
+            </section>
             <form className='margin-y-05 bg-base-lighter padding-y-2px padding-x-3 text-ink radius-md' acceptCharset='utf-8'>
               <h3>What type of post will this be?</h3>
               <fieldset className='usa-fieldset'>
@@ -217,7 +220,7 @@ export default withData(class extends Component {
               <strong>Spotlight Preview</strong> &mdash; How this page will likely look in Spotlight
             </p>
             <article className='bg-base-lighter radius-md margin-0 margin-bottom-5 padding-2 text-ink'>
-              <p className='font-sans-md'>{this.state.deck}</p>
+              <p className='font-sans-md break-word'>{this.state.deck}</p>
               <div className='flex-row display-flex flex-align-end flex-justify'>
                 <p>
                   <a className='text-no-underline text-ink visited:text-ink' href='#' title='Digital.gov'>
@@ -232,7 +235,7 @@ export default withData(class extends Component {
                   <a className='text-primary-darker display-inline-block margin-x-2px text-no-underline bg-primary-light font-sans-3xs padding-y-2px padding-x-1 radius-pill' href='#'>
                     Design
                   </a>
-                  <a className='text-primary-darker display-inline-block margin-x-2px text-no-underline bg-primary-light font-sans-3xs padding-y-2px padding-x-1 radius-pill' href='/topics/open-data/' data-topic='open-data'>
+                  <a className='text-primary-darker display-inline-block margin-x-2px text-no-underline bg-primary-light font-sans-3xs padding-y-2px padding-x-1 radius-pill' href='#'>
                     Open Data
                   </a>
                 </div>
@@ -247,7 +250,7 @@ export default withData(class extends Component {
                 {this.state.postType === 'elsewhere' ? 'headline' : this.state.headline} / DigitalGov - Building the 21st Century Digital Government
               </h3>
               <p className='seo-preview-url'>
-                https://digital.gov/{this.state.date.replace('-', '/')}/{this.state.postType === 'elsewhere' ? 'headline' : slugify(this.state.headline)}
+                https://digital.gov/{this.state.date.replace(/-/g, '/')}/{this.state.postType === 'elsewhere' ? 'headline' : slugify(this.state.headline)}
               </p>
               <p className='seo-preview-content'>
                 {this.state.deck}
@@ -257,10 +260,10 @@ export default withData(class extends Component {
             <p className='margin-bottom-105 font-sans-md text-light line-height-sans-3'>
               <strong>Front Matter Preview</strong> &mdash; This is the additional data <em>(a.k.a. front-matter)</em> that will help build this page on Digital.gov
             </p>
-            <pre className='text-bold overlay-overflow text-ink bg-white padding-2 radius-md'>
+            <pre className='text-bold break-word text-ink bg-white padding-2 radius-md'>
               {this.state.fmFilename}
             </pre>
-            <pre className='bg-white overlay-overflow text-ink padding-2 radius-md'>
+            <pre className='bg-white break-word text-ink padding-2 radius-md'>
               {this.state.fmContent}
             </pre>
 
@@ -270,10 +273,15 @@ export default withData(class extends Component {
                 + '/draft?filename='
                 + encodeURIComponent(this.state.fmFilename)
                 + '&value='
-                + encodeURIComponent(this.state.fmContent)}>
+                + encodeURIComponent(this.state.fmContent)}
+              target='_blank'
+              rel='noopener noreferrer'>
               Create in GitHub &raquo;
             </a>
-            <a className='usa-button usa-button-outline usa-button-fullwidth' href='https://github.com/GSA/digitalgov.gov/wiki'>
+            <a className='usa-button usa-button-outline usa-button-fullwidth'
+              href='https://github.com/GSA/digitalgov.gov/wiki'
+              target='_blank'
+              rel='noopener noreferrer'>
               A guide to publishing in GitHub
             </a>
           </div>
