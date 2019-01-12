@@ -28,7 +28,7 @@ query resources {
 
 export default withData(class extends Component {
   render() {
-    return <Layout medium='Resources' live='https://demo.digital.gov/resources/'>
+    return <Layout medium='Resources' live='https://demo.digital.gov/resources/' info='The resource pages on digital.gov are some of the most visited pages on our site. Many of the resource pages have been authored by experts from across the government community.'>
       <Query query={query}>
         {({ loading, error, data }) => {
           if (error) return <div>Error loading resources!</div>

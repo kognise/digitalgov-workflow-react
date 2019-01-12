@@ -30,6 +30,15 @@ export default class extends Component {
       </Link>
     }
 
+    let info = null
+    if (this.props.info) {
+      info = <div className='margin-y-3 font-sans-md'>
+        <p>
+          {this.props.info}
+        </p>
+      </div>
+    }
+
     return <Paper>
       <Header />
       <Main padding='4' gridType='desktop-lg'>
@@ -39,6 +48,7 @@ export default class extends Component {
               {backButton} {newButton}
               <h1 className='margin-0 font-sans-3xl text-thin'>All {this.props.medium}</h1>
               <p>Live: <a href={this.props.live} title={'Go to ' + this.props.live}>{this.props.live}</a></p>
+              {info}
             </section>
           </div>
           <div className='grid-col-12 tablet:grid-col-8'>
