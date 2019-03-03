@@ -14,7 +14,7 @@
     "lint:fix": "eslint . --fix"
   },
   "main": "pages/index.js",
-  "author": "Felix Mattick",
+  "author": "Kognise",
   "license": "MIT",
   "private": false,
   "dependencies": {
