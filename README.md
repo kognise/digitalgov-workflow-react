@@ -110,6 +110,6 @@ The output will be in a directory called `out`.
 
 ## Backend
 
-The GraphQL backend for this project is [here](https://github.com/arch-lord/digitalgov-workflow-graphql) on GitHub, and is [hosted on heroku](https://github.com/arch-lord/digitalgov-workflow-graphql).
+The GraphQL backend for this project is [here](https://github.com/kognise/digitalgov-workflow-graphql) on GitHub, and is [hosted on heroku](https://github.com/kognise/digitalgov-workflow-graphql).
 
 I may eventually eliminate it for a purely static approach.
